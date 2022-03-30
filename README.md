@@ -54,22 +54,21 @@ Yet to be written.
 1. Frontend: http://localhost:8080
 
 ## Use Cases
--Kunde geht in Autohaus und möchte bestimmtes Automodell (Lamborghini Modell: Huracan Evo) bestellen
--Verkäufer sucht in der Datenbank  nach dem bestimmten Fahrzeug
--bekommt das Modell angezeigt 
-    -Marke,  Modell und Power (PS)
-    -> Lamborghini Huracan Evo mit 610PS
+-Kunde geht in Autohaus und möchte bestimmtes Automodell (Lamborghini Modell: Huracan Evo) bestellen <br>   
+-Verkäufer sucht in der Datenbank  nach dem bestimmten Fahrzeug <br> 
+    -Marke,  Modell und Power (PS) <br>
+    -> Lamborghini Huracan Evo mit 610PS 
     
--Service befindet sich innerhalb eines Vertriebssystems eines Autohauses
-    -befindet sich im Backend des Anbieters
-    -befindet sich auf der Autohaus Webseite -> für den Kunden erreichbar
+-Service befindet sich innerhalb eines Vertriebssystems eines Autohauses <br> 
+    -befindet sich im Backend des Anbieters <br>
+    -befindet sich auf der Autohaus Webseite -> für den Kunden erreichbar <br>
 
 
 ## Possible issues when used between multiple parties
--Problem 1: Datenkorrektheit: Daten müssen zu jedem Zeitpunkt an jedem Endpunkt die gleich angezeigt werden
+-Problem 1: Datenkorrektheit: Daten müssen zu jedem Zeitpunkt an jedem Endpunkt die gleich angezeigt werden <br>
 -Lösung 1: Daten werden auf dem Server gepostet, aber erst live geschalten, wenn Änderungen abgeschlossen sind (-> role back möglich)
 
--Problem 2: gleichzeitige Bearbeitung: Überschreibung der Daten, wenn zwei Benutzer gleichzeitig in einem Modell sind (wer überschreibt wen?)
+-Problem 2: gleichzeitige Bearbeitung: Überschreibung der Daten, wenn zwei Benutzer gleichzeitig in einem Modell sind (wer überschreibt wen?) <br>
 -Lösung 2: Regelung erfolgt durch Software, dass immer nur eine Person die Daten bearbeiten kann -> sobald Modell in Bearbeitung ist, ist die Bearbeitung für andere Nutzer gesperrt
 
 
