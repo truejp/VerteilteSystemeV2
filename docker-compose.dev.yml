@@ -1,0 +1,49 @@
+version: "3.9"
+services:
+    mongodb:
+        image: mongo
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: dbuser
+            MONGO_INITDB_ROOT_PASSWORD: dbpass
+        volumes:
+            - dbdata:/data/db
+            - dbconfig:/data/configdb
+    mongo-gui:
+        image: mongo-express
+        restart: always
+        ports:
+            - 8081:8081
+        environment:
+            ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+            ME_CONFIG_MONGODB_ADMINPASSWORD: admin
+            ME_CONFIG_MONGODB_URL: mongodb://dbuser:dbpass@mongodb:27017/
+    backend:
+        depends_on:
+            - mongodb
+        image: node:17-alpine
+        restart: always
+        environment:
+            HOST: "::"
+            PORT: 3000
+            MONGODB: mongodb://dbuser:dbpass@mongodb:27017/
+        ports:
+            - 3000:3000
+            - 9229:9229
+        volumes:
+            - ./Backend:/app
+        working_dir: /app
+        command: sh -c "npm i; npm start"
+    frontend:
+        image: node:17-alpine
+        restart: always
+        ports:
+            - 8080:8080
+        volumes:
+            - ./Frontend:/app
+        working_dir: /app
+        command: sh -c "npm i; npm start"
+
+volumes:
+    dbdata:
+    dbconfig:

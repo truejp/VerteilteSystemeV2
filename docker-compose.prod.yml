@@ -1,0 +1,43 @@
+version: "3.9"
+services:
+    mongodb:
+        image: mongo
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: dbuser
+            MONGO_INITDB_ROOT_PASSWORD: dbpass
+        volumes:
+            - dbdata:/data/db
+            - dbconfig:/data/configdb
+    backend:
+        build:
+            context: ./Backend
+        depends_on:
+            - mongodb
+        restart: always
+        environment:
+            HOST: "::"
+            PORT: 3000
+            MONGODB: mongodb://dbuser:dbpass@mongodb:27017/
+        deploy:
+            replicas: 3
+    frontend:
+        build:
+            context: ./Frontend
+        restart: always
+        environment:
+            API_URL: ${API_URL:-http://localhost:8080/api}
+        deploy:
+            replicas: 2
+    gateway:
+        depends_on:
+            - backend
+            - frontend
+        build:
+            context: ./Gateway
+        restart: always
+        ports:
+            - 8080:81
+volumes:
+    dbdata:
+    dbconfig:
