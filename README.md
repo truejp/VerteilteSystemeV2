@@ -8,6 +8,7 @@ The Demo can be executed on localhost using Docker and Node.js.
 - Swagger: https://www.npmjs.com/package/restify-swagger-jsdoc
 - Edit OpenAPI
 - Validator
+- Bugfix Collection 2 & 3
 
 ## Dependencies
 Following frameworks are required to execute the WebService:
