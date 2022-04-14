@@ -7,6 +7,8 @@ import OpenApiEnforcerMiddleware from "@dschulmeis/restify-openapi-enforcer-midd
 import DatabaseFactory from "./database.js";
 import RootController from "./controller/root.controller.js";
 import VehicleController from "./controller/vehicle.controller.js";
+import TruckController from "./controller/vehicle.controller.js";
+import MotorcycleController from "./controller/vehicle.controller.js";
 import path from "path";
 import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -85,6 +87,8 @@ server.use(OpenApiEnforcerMiddleware(openApiEnforcer));
 // register root controller and start server
 new RootController(server, "/");
 new VehicleController(server, "/vehicle");
+new MotorcycleController(server, "/motorcycle");
+new TruckController(server, "/truck");
 server.listen(config.port, config.host, function() {
     console.log();
     console.log("=================");

@@ -19,6 +19,8 @@ class DatabaseFactory {
      */
     async _createDemoData() {
         let vehicles = this.database.collection("vehicles");
+        let motorcycles = this.database.collection("motorcycles");
+        let trucks = this.database.collection("trucks");
 
         if (await vehicles.estimatedDocumentCount() === 0) {
             vehicles.insertMany([
@@ -41,6 +43,35 @@ class DatabaseFactory {
                     vendor: "Mini",
                     model: "Cooper S",
                     power: "210 PS",
+                },
+            ]);
+            motorcycles.insertMany([
+                {
+                    vendor: "BMW",
+                    model: "R1100RS",
+                    power: "120 PS",
+                },
+                {
+                    vendor: "Ducati",
+                    model: "V4S",
+                    power: "219 PS",
+                },
+                {
+                    vendor: "Honda",
+                    model: "CBR600RR",
+                    power: "129 PS",
+                },
+            ]);
+            trucks.insertMany([
+                {
+                    vendor: "MAN",
+                    model: "Semi",
+                    power: "480 PS",
+                },
+                {
+                    vendor: "Mercedes-Benz",
+                    model: "Actros",
+                    power: "510 PS",
                 },
             ]);
         }

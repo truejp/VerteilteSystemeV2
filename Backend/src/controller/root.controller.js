@@ -33,7 +33,18 @@ export default class RootController {
                 _name: "vehicle",
                 query: {url: "/vehicle", method: "GET", query_params: ["search", "vendor", "model", "power"]},
                 create: {url: "/vehicle", method: "POST"},
+            },
+            {
+                _name: "motorcycle",
+                query: {url: "/motorcycle", method: "GET", query_params: ["search", "vendor", "model", "power"]},
+                create: {url: "/motorcycle", method: "POST"},
+            },
+            {
+                _name: "truck",
+                query: {url: "/truck", method: "GET", query_params: ["search", "vendor", "model", "power"]},
+                create: {url: "/truck", method: "POST"},
             }
+
         ]);
 
         next();

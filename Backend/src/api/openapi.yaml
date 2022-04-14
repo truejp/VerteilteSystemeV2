@@ -204,6 +204,341 @@ paths:
           description: OK
         "404":
           description: Not Found
+  /truck:
+    get:
+      tags:
+      - Vehicle
+      summary: Find Vehicles
+      description: Search for specific vehicles. Returns list of all vehicles.
+      operationId: search-truck
+      parameters:
+      - name: vendor
+        in: query
+        description: Vendor of vehicle
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: model
+        in: query
+        description: Model of vehicle
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: power
+        in: query
+        description: Power of vehicle
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Truck'
+                x-content-type: application/json
+    post:
+      tags:
+      - Vehicle
+      summary: Create new vehicle
+      description: "Create a new vehicle. Saves passed parameters in the database. \
+        \Param ID gets ignored as it will be assigned automatically."
+      operationId: create-truck
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Truck'
+      responses:
+        "201":
+          description: Created
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Truck'
+
+  /truck/{id}:
+    get:
+      tags:
+      - Vehicle
+      summary: fetch vehicle
+      description: Fetches a single vehicle from the database.
+      operationId: get-truck
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Truck'
+        "404":
+          description: Not Found
+    put:
+      tags:
+      - Overwrite vehicle
+      summary: ""
+      description: "Overwrites a single vehicle in the database. You can edit all \
+        \ attributes except the ID."
+      operationId: update-truck
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Truck'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Truck'
+        "404":
+          description: Not Found
+    patch:
+      tags:
+      - Change single attributes
+      summary: Change single attributes
+      description: "Changes single attributes of existing vehicles.\
+        \ You are allowed to change any attribute except of the ID."
+      operationId: patch-truck
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Truck'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Truck'
+        "404":
+          description: Not Found
+    delete:
+      tags:
+      - Vehicle
+      summary: Delete vehicle
+      description: Deletes a single vehicle from the database.
+      operationId: delete-truck
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
+
+  /motorcycle:
+    get:
+      tags:
+      - Vehicle
+      summary: Find Vehicles
+      description: Search for specific vehicles. Returns list of all vehicles.
+      operationId: search-motorcycle
+      parameters:
+      - name: vendor
+        in: query
+        description: Vendor of vehicle
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: model
+        in: query
+        description: Model of vehicle
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: power
+        in: query
+        description: Power of vehicle
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Motorcycle'
+                x-content-type: application/json
+    post:
+      tags:
+      - Vehicle
+      summary: Create new vehicle
+      description: "Create a new vehicle. Saves passed parameters in the database. \
+        \Param ID gets ignored as it will be assigned automatically."
+      operationId: create-motorcycle
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Motorcycle'
+      responses:
+        "201":
+          description: Created
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Motorcycle'
+
+  /motorcycle/{id}:
+    get:
+      tags:
+      - Vehicle
+      summary: fetch vehicle
+      description: Fetches a single vehicle from the database.
+      operationId: get-motorcycle
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Motorcycle'
+        "404":
+          description: Not Found
+    put:
+      tags:
+      - Overwrite vehicle
+      summary: ""
+      description: "Overwrites a single vehicle in the database. You can edit all \
+        \ attributes except the ID."
+      operationId: update-motorcycle
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Motorcycle'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Motorcycle'
+        "404":
+          description: Not Found
+    patch:
+      tags:
+      - Change single attributes
+      summary: Change single attributes
+      description: "Changes single attributes of existing vehicles.\
+        \ You are allowed to change any attribute except of the ID."
+      operationId: patch-motorcycle
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Motorcycle'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Motorcycle'
+        "404":
+          description: Not Found
+    delete:
+      tags:
+      - Vehicle
+      summary: Delete vehicle
+      description: Deletes a single vehicle from the database.
+      operationId: delete-motorcycle
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
 
 components:
   schemas:
@@ -266,4 +601,48 @@ components:
         vendor: "Audi"
         model: "TT RS Coupe"
         power: "249 PS"
+    Motorcycle:
+      title: Motorcycle
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HATEOAS_Resource'
+        _id:
+          type: string
+        vendor:
+          type: string
+        model:
+          type: string
+        power:
+          type: string
+      required:
+        - vendor
+        - model
+      example:
+        _id: "621ff9a936997df5baba746e"
+        vendor: "BMW"
+        model: "R1100RS"
+        power: "249 PS"
+    Truck:
+      title: Truck
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HATEOAS_Resource'
+        _id:
+          type: string
+        vendor:
+          type: string
+        model:
+          type: string
+        power:
+          type: string
+      required:
+        - vendor
+        - model
+      example:
+        _id: "621ff9a936997df5baba746e"
+        vendor: "MAN"
+        model: "Semi Truck"
+        power: "510 PS"
   securitySchemes: {}
