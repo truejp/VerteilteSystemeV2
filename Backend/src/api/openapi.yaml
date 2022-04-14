@@ -207,14 +207,14 @@ paths:
   /truck:
     get:
       tags:
-      - Vehicle
-      summary: Find Vehicles
-      description: Search for specific vehicles. Returns list of all vehicles.
+      - Trucks
+      summary: Find Trucks
+      description: Search for specific trucks. Returns list of all trucks.
       operationId: search-truck
       parameters:
       - name: vendor
         in: query
-        description: Vendor of vehicle
+        description: Vendor of truck
         required: false
         style: form
         explode: true
@@ -222,7 +222,7 @@ paths:
           type: string
       - name: model
         in: query
-        description: Model of vehicle
+        description: Model of truck
         required: false
         style: form
         explode: true
@@ -230,7 +230,7 @@ paths:
           type: string
       - name: power
         in: query
-        description: Power of vehicle
+        description: Power of truck
         required: false
         style: form
         explode: true
@@ -248,9 +248,9 @@ paths:
                 x-content-type: application/json
     post:
       tags:
-      - Vehicle
-      summary: Create new vehicle
-      description: "Create a new vehicle. Saves passed parameters in the database. \
+      - Truck
+      summary: Create new truck
+      description: "Create a new truck. Saves passed parameters in the database. \
         \Param ID gets ignored as it will be assigned automatically."
       operationId: create-truck
       requestBody:
@@ -273,9 +273,9 @@ paths:
   /truck/{id}:
     get:
       tags:
-      - Vehicle
-      summary: fetch vehicle
-      description: Fetches a single vehicle from the database.
+      - Truck
+      summary: fetch truck
+      description: Fetches a single truck from the database.
       operationId: get-truck
       parameters:
       - name: id
@@ -296,9 +296,9 @@ paths:
           description: Not Found
     put:
       tags:
-      - Overwrite vehicle
+      - Overwrite truck
       summary: ""
-      description: "Overwrites a single vehicle in the database. You can edit all \
+      description: "Overwrites a single truck in the database. You can edit all \
         \ attributes except the ID."
       operationId: update-truck
       parameters:
@@ -327,7 +327,7 @@ paths:
       tags:
       - Change single attributes
       summary: Change single attributes
-      description: "Changes single attributes of existing vehicles.\
+      description: "Changes single attributes of existing trucks.\
         \ You are allowed to change any attribute except of the ID."
       operationId: patch-truck
       parameters:
@@ -354,9 +354,9 @@ paths:
           description: Not Found
     delete:
       tags:
-      - Vehicle
-      summary: Delete vehicle
-      description: Deletes a single vehicle from the database.
+      - Truck
+      summary: Delete truck
+      description: Deletes a single truck from the database.
       operationId: delete-truck
       parameters:
       - name: id
@@ -375,14 +375,14 @@ paths:
   /motorcycle:
     get:
       tags:
-      - Vehicle
-      summary: Find Vehicles
-      description: Search for specific vehicles. Returns list of all vehicles.
+      - Motorcycle
+      summary: Find Motorcycles
+      description: Search for specific motorcycles. Returns list of all motorcycles.
       operationId: search-motorcycle
       parameters:
       - name: vendor
         in: query
-        description: Vendor of vehicle
+        description: Vendor of motorcycle
         required: false
         style: form
         explode: true
@@ -390,7 +390,7 @@ paths:
           type: string
       - name: model
         in: query
-        description: Model of vehicle
+        description: Model of motorcycle
         required: false
         style: form
         explode: true
@@ -398,7 +398,7 @@ paths:
           type: string
       - name: power
         in: query
-        description: Power of vehicle
+        description: Power of motorcycle
         required: false
         style: form
         explode: true
@@ -416,9 +416,9 @@ paths:
                 x-content-type: application/json
     post:
       tags:
-      - Vehicle
-      summary: Create new vehicle
-      description: "Create a new vehicle. Saves passed parameters in the database. \
+      - Motorcycle
+      summary: Create new motorcycle
+      description: "Create a new motorcycle. Saves passed parameters in the database. \
         \Param ID gets ignored as it will be assigned automatically."
       operationId: create-motorcycle
       requestBody:
@@ -441,9 +441,9 @@ paths:
   /motorcycle/{id}:
     get:
       tags:
-      - Vehicle
-      summary: fetch vehicle
-      description: Fetches a single vehicle from the database.
+      - Motorcycle
+      summary: fetch motorcycle
+      description: Fetches a single motorcycle from the database.
       operationId: get-motorcycle
       parameters:
       - name: id
@@ -464,9 +464,9 @@ paths:
           description: Not Found
     put:
       tags:
-      - Overwrite vehicle
+      - Overwrite motorcycle
       summary: ""
-      description: "Overwrites a single vehicle in the database. You can edit all \
+      description: "Overwrites a single motorcycle in the database. You can edit all \
         \ attributes except the ID."
       operationId: update-motorcycle
       parameters:
@@ -495,7 +495,7 @@ paths:
       tags:
       - Change single attributes
       summary: Change single attributes
-      description: "Changes single attributes of existing vehicles.\
+      description: "Changes single attributes of existing motorcycles.\
         \ You are allowed to change any attribute except of the ID."
       operationId: patch-motorcycle
       parameters:
@@ -522,9 +522,9 @@ paths:
           description: Not Found
     delete:
       tags:
-      - Vehicle
-      summary: Delete vehicle
-      description: Deletes a single vehicle from the database.
+      - Motorcycle
+      summary: Delete motorcycle
+      description: Deletes a single motorcycle from the database.
       operationId: delete-motorcycle
       parameters:
       - name: id
@@ -539,7 +539,6 @@ paths:
           description: OK
         "404":
           description: Not Found
-
 components:
   schemas:
     HATEOAS_Collection:
