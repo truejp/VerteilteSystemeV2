@@ -4,6 +4,12 @@
 ## Demo
 The Demo can be executed on localhost using Docker and Node.js.
 
+## To Do
+- Swagger: https://www.npmjs.com/package/restify-swagger-jsdoc
+- Edit OpenAPI
+- Validator
+- Bugfix Collection 2 & 3
+
 ## Dependencies
 Following frameworks are required to execute the WebService:
 
@@ -54,10 +60,28 @@ Yet to be written.
 1. Frontend: http://localhost:8080
 
 ## Use Cases
-Yet to be written.
+- Kunde geht in Autohaus und möchte bestimmtes Automodell (Lamborghini Modell: Huracan Evo) bestellen  
+- Verkäufer sucht in der Datenbank  nach dem bestimmten Fahrzeug <br> 
+    - Marke,  Modell und Power (PS) <br>
+    -> Lamborghini Huracan Evo mit 610PS 
+    
+- Service befindet sich innerhalb eines Vertriebssystems eines Autohauses <br> 
+    - befindet sich im Backend des Anbieters <br>
+    - befindet sich auf der Autohaus Webseite -> für den Kunden erreichbar <br>
+
 
 ## Possible issues when used between multiple parties
-Yet to be written.
+- Problem 1: Datenkorrektheit: Daten müssen zu jedem Zeitpunkt an jedem Endpunkt die gleich angezeigt werden <br>
+- Lösung 1: Daten werden auf dem Server gepostet, aber erst live geschalten, wenn Änderungen abgeschlossen sind (-> role back möglich)
+
+- Problem 2: gleichzeitige Bearbeitung: Überschreibung der Daten, wenn zwei Benutzer gleichzeitig in einem Modell sind (wer überschreibt wen?) <br>
+- Lösung 2: Regelung erfolgt durch Software, dass immer nur eine Person die Daten bearbeiten kann -> sobald Modell in Bearbeitung ist, ist die Bearbeitung für andere Nutzer gesperrt
+
 
 ## Additional aspects for Go2Live
-Yet to be written.
+- Service nurnoch im Frontend öffentlich zugänglich machen, alles andere hinter einem Gateway verbergen. Somit kann nicht jeder auf die Datenbank zugreifen. Dies stellt
+ansonsten ein hohes Sicherheitsrisiko dar, weil die Daten im Internet verfügbar wären. Die Datenbank darf nicht auf public erreichbar sein.
+
+- Persistente Datenbank einführen: sobald der Container neugestartet wird, werden die Daten überschrieben und die Datenbank wird jedes Mal neu aufgesetzt. Nun wollen wir persistente Daten, sodass beispielsweise auch nach einem Neustart die Daten vorhanden sind.
+
+- Service auf der Webseite einbinden. Hierbei soll der Kunde auf der Webseite die aktuell vorhandenen Modelle des Autohauses einsehen können. Dadurch hat der Kunde die Möglichkeit vor dem Autohausbesuch sich über die Modelle zu informieren.
