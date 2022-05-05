@@ -1,5 +1,7 @@
 # Portfolio Verteilte Systeme
 (c)2022 - Lisa Ackermann, Philipp Lehnet, Sophia Sturm
+Das Portfolio wurde gemeinsam in der Gruppe erarbeitet. Aufgrund dessen sind nicht von jedem Gruppenmitglied gleich viele Commits vorhanden.
+(es wurde gemeinsam über Alfaview gearbeitet)
 
 ## Demo
 The Demo can be executed on localhost using Docker and Node.js.
