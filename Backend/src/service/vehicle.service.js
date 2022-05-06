@@ -29,7 +29,6 @@ export default class VehicleService {
                 model: 1,
             }
         });
-
         return cursor.toArray();
     }
 
@@ -40,7 +39,6 @@ export default class VehicleService {
                 model: 1,
             }
         });
-
         return cursor.toArray();
     }
 

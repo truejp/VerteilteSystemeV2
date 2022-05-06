@@ -4,9 +4,9 @@
         "title": "Vehicle Inventory",
         "description": "Das Vehicle Inventory beinhaltet diverse Fahrzeuge verschiedener Marken. Die Daten, welche im Backend zur Verfügung gestellt werden, können mittels  API Abfrage von verschiedenen Frontends optisch aufbereitet werden.  Die Informationen beinhalten Marke, Modell und Leistung (PS).",
         "contact": {
-            "name": "Philipp Lehnet",
-            "url": "https://www.bl-itsolutions.de",
-            "email": "lehnet@bl-itsolutions.de"
+            "name": "Sophia Sturm",
+            "url": "https://www.sophia-sturm.de",
+            "email": "lisa@ackermann.de"
         },
         "license": {
             "name": "MIT",
@@ -151,7 +151,7 @@
                 }
             }
         },
-        "/vehicle/{id}": {
+        "/a/{id}": {
             "get": {
                 "tags": [
                     "Vehicle"

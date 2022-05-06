@@ -70,8 +70,18 @@ export default class PageEdit extends Page {
             return;
         }
 
+        if (this._dataset.vendor.length < 3) {
+            alert("Vendor has to be at least 3 characters.");
+            return;
+        }
+
         if (!this._dataset.model) {
             alert("You have to enter a model.");
+            return;
+        }
+
+        if (this._dataset.model.length < 2) {
+            alert("Model has to be at least 2 characters.");
             return;
         }
 

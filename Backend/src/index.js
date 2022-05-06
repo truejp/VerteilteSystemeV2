@@ -33,6 +33,18 @@ const server = restify.createServer({
     //optional configuration possible - not neccessary
 });
 
+/*
+Wir haben Swagger nicht im Projekt eingebunden, da das Projekt sich dadurch nicht mehr ausführen ließ. Die OpenApi Dokumentation liegt trotzdem vollständig im Ordner /api vor.
+Wir vermuten, dass es an der OpenApiEnforcerMiddleware scheitert, konnten das Problem aber nicht mehr lösen. In der package.json müsste zum Testen swagger-ui-express zu swagger-ui-restify getauscht werden.
+*/
+
+/*
+const swaggerUi = require('swagger-ui-restify');
+const swaggerDocument = require('api/openapi.json');
+server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+*/
+
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.authorizationParser());
 server.use(restify.plugins.dateParser());
@@ -89,11 +101,11 @@ new RootController(server, "/");
 new VehicleController(server, "/vehicle");
 new MotorcycleController(server, "/motorcycle");
 new TruckController(server, "/truck");
+
 server.listen(config.port, config.host, function() {
     console.log();
     console.log("=================");
     console.log("vehicle inventory service");
-    console.log("(c)2022 - BL Consulting Solutions GmbH");
     console.log("=================");
     console.log();
     console.log("Current config:");

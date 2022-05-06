@@ -19,7 +19,6 @@ export default class RootController {
      */
     constructor(server, prefix) {
         this._openApiFile = path.normalize(path.join(__dirname, "..", "api", "openapi.yaml"));
-
         server.get(prefix, wrapHandler(this, this.index));
         server.get(prefix + "/openapi.yaml", wrapHandler(this, this.openApi));
     }
@@ -36,17 +35,15 @@ export default class RootController {
             },
             {
                 _name: "motorcycle",
-                query: {url: "/motorcycle", method: "GET", query_params: ["search", "vendor", "model", "power"]},
+                query: {url: "/motorcycle", method: "GET", query_params: ["searchMotorcycle", "vendor", "model", "power"]},
                 create: {url: "/motorcycle", method: "POST"},
             },
             {
                 _name: "truck",
-                query: {url: "/truck", method: "GET", query_params: ["search", "vendor", "model", "power"]},
+                query: {url: "/truck", method: "GET", query_params: ["searchTruck", "vendor", "model", "power"]},
                 create: {url: "/truck", method: "POST"},
             }
-
         ]);
-
         next();
     }
 
@@ -56,7 +53,6 @@ export default class RootController {
     async openApi(req, res, next) {
         if (req.query.openapi !== undefined) {
             let filecontent = await readFile(this._openApiFile);
-
             res.status(200);
             res.header("content-type", "application/openapi+yaml");
             res.sendRaw(filecontent);

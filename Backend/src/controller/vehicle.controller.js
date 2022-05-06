@@ -36,7 +36,6 @@ export default class VehicleController {
      */
     _insertHateoasLinks(entity) {
         let url = `${this._prefix}/${entity._id}`;
-
         entity._links = {
             read:   {url: url, method: "GET"},
             update: {url: url, method: "PUT"},

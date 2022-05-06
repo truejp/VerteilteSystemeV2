@@ -45,6 +45,8 @@ class DatabaseFactory {
                     power: "210 PS",
                 },
             ]);
+        }
+        if (await motorcycles.estimatedDocumentCount() === 0) {
             motorcycles.insertMany([
                 {
                     vendor: "BMW",
@@ -62,6 +64,8 @@ class DatabaseFactory {
                     power: "129 PS",
                 },
             ]);
+        }
+        if (await trucks.estimatedDocumentCount() === 0) {
             trucks.insertMany([
                 {
                     vendor: "MAN",
@@ -74,6 +78,7 @@ class DatabaseFactory {
                     power: "510 PS",
                 },
             ]);
+
         }
     }
 }
