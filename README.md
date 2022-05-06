@@ -6,12 +6,6 @@ Das Portfolio wurde gemeinsam in der Gruppe erarbeitet. Aufgrund dessen sind nic
 ## Demo
 The Demo can be executed on localhost using Docker and Node.js.
 
-## To Do
-- Swagger: https://www.npmjs.com/package/restify-swagger-jsdoc
-- Edit OpenAPI
-- Validator
-- Bugfix Collection 2 & 3
-
 ## Dependencies
 Following frameworks are required to execute the WebService:
 
@@ -45,21 +39,15 @@ docker-compose -f docker-compose.dev.yml down
 ```
 Note: Sometimes Docker won't stop on Windows PCs. If there are instances of Docker left, you can kill them all using `docker ps -q | % { docker stop $_ }`.
 
-## Make Productive Build
-Yet to be written.
-
 # Documentation
 
 ## API Endpoints
-Yet to be written.
+API Description can be found at Backend/src/api/openapi.json
 
 ## Webhooks Development Environment:
 1. Frontend: http://localhost:8080
 2. Backend (API): http://localhost:3000
 3. Database Frontend: http://localhost:8081
-
-## Webhooks Productive Environment:
-1. Frontend: http://localhost:8080
 
 ## Use Cases
 - Kunde geht in Autohaus und möchte bestimmtes Automodell (Lamborghini Modell: Huracan Evo) bestellen  
